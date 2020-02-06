@@ -10,6 +10,54 @@ class DeviceType(models.Model):
 
     def __str__(self):
         return str(self.type)
+        
+
+class PortFunction(models.Model):
+    function = models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name = "PortFunction"
+        verbose_name_plural = "PortFunction"
+        db_table = 'PortFunction'
+
+    def __str__(self):
+        return str(self.function)
+
+
+class PortType(models.Model):
+    type = models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name = "PortType"
+        verbose_name_plural = "PortTypes"
+        db_table = 'PortType'
+
+    def __str__(self):
+        return str(self.type)
+
+
+class PortSpeedType(models.Model):
+    type = models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name = "PortSpeedType"
+        verbose_name_plural = "PortSpeedTypes"
+        db_table = 'PortSpeedType'
+
+    def __str__(self):
+        return str(self.type)
+
+
+class PortSpeed(models.Model):
+    speed = models.PositiveSmallIntegerField()
+
+    class Meta:
+        verbose_name = "PortSpeed"
+        verbose_name_plural = "PortSpeed"
+        db_table = 'PortSpeed'
+
+    def __str__(self):
+        return str(self.speed)
 
 
 class DeviceManufacturer(models.Model):
