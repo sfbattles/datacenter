@@ -61,6 +61,29 @@ class PortFunction(models.Model):
 #         return str(self.number) + " " + self.description
                                  
 # megabit, gigabit
+class PatchPort(models.Model):
+    number = models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name = "PatchPort"
+        verbose_name_plural = "PatchPort"
+        db_table = 'PatchPort'
+
+    def __str__(self):
+        return str(self.number)
+
+class SwitchPort(models.Model):
+    number = models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name = "SwitchPort"
+        verbose_name_plural = "SwitchPort"
+        db_table = 'SwitchPort'
+
+    def __str__(self):
+        return str(self.number)
+
+
 class PortType(models.Model):
     type = models.CharField(max_length=250)
 
