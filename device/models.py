@@ -10,8 +10,32 @@ class DeviceType(models.Model):
 
     def __str__(self):
         return str(self.type)
-        
 
+class DeviceRackLocation(models.Model):
+    name = models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name = "DeviceRackLocation"
+        verbose_name_plural = "DeviceRackLocation"
+        db_table = 'DeviceRackLocation'
+
+    def __str__(self):
+        return str(self.name)
+
+
+# Primary or seconday
+class DevicePurpose(models.Model):
+    type = models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name = "DevicePurpose"
+        verbose_name_plural = "DevicePurpose"
+        db_table = 'DevicePurpose'
+
+    def __str__(self):
+        return str(self.type) 
+
+#LAN, SFP, Console, Management 
 class PortFunction(models.Model):
     function = models.CharField(max_length=250)
 
@@ -24,6 +48,19 @@ class PortFunction(models.Model):
         return str(self.function)
 
 
+# class VLan(models.Model):
+#     number = models.PositiveSmallIntegerField()
+#     description = models.CharField(max_length=250)
+
+#     class Meta:
+#         verbose_name = "VLan"
+#         verbose_name_plural = "VLans"
+#         db_table = 'VLan'
+
+#     def __str__(self):
+#         return str(self.number) + " " + self.description
+                                 
+# megabit, gigabit
 class PortType(models.Model):
     type = models.CharField(max_length=250)
 
@@ -36,18 +73,7 @@ class PortType(models.Model):
         return str(self.type)
 
 
-class PortSpeedType(models.Model):
-    type = models.CharField(max_length=250)
-
-    class Meta:
-        verbose_name = "PortSpeedType"
-        verbose_name_plural = "PortSpeedTypes"
-        db_table = 'PortSpeedType'
-
-    def __str__(self):
-        return str(self.type)
-
-
+# 1, 10, 40, 100
 class PortSpeed(models.Model):
     speed = models.PositiveSmallIntegerField()
 
