@@ -23,17 +23,40 @@ class DeviceRackLocation(models.Model):
         return str(self.name)
 
 
-# Primary or seconday
-class DevicePurpose(models.Model):
-    type = models.CharField(max_length=250)
+class Rack(models.Model):
+    name = models.CharField(max_length=250)
 
     class Meta:
-        verbose_name = "DevicePurpose"
-        verbose_name_plural = "DevicePurpose"
-        db_table = 'DevicePurpose'
+        verbose_name = "Rack"
+        verbose_name_plural = "Rack"
+        db_table = 'Rack'
 
     def __str__(self):
-        return str(self.type) 
+        return str(self.name)
+
+
+class DataCenter(models.Model):
+    name = models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name = "DataCenter"
+        verbose_name_plural = "DataCenter"
+        db_table = 'DataCenter'
+
+    def __str__(self):
+        return str(self.name)
+
+# Primary or Seconday
+class DeviceRole(models.Model):
+    role = models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name = "DeviceRole"
+        verbose_name_plural = "DeviceRole"
+        db_table = 'DeviceRole'
+
+    def __str__(self):
+        return str(self.role) 
 
 #LAN, SFP, Console, Management 
 class PortFunction(models.Model):
@@ -72,6 +95,7 @@ class PatchPort(models.Model):
     def __str__(self):
         return str(self.number)
 
+# number of the switch ports
 class SwitchPort(models.Model):
     number = models.CharField(max_length=250)
 
@@ -83,7 +107,7 @@ class SwitchPort(models.Model):
     def __str__(self):
         return str(self.number)
 
-
+#gigabit or megabits
 class PortType(models.Model):
     type = models.CharField(max_length=250)
 
@@ -120,6 +144,19 @@ class DeviceManufacturer(models.Model):
     def __str__(self):
         return str(self.name)
 
+
+class DeviceHostName(models.Model):
+    name =  models.CharField(max_length=250)
+
+    class Meta:
+        verbose_name = "DeviceHostName"
+        verbose_name_plural = "DeviceHostName"
+        db_table = 'DeviceHostname'
+
+    def __str__(self):
+        return str(self.name)
+
+
 class DeviceDetail(models.Model):
     device_manufacturer = models.ForeignKey(DeviceManufacturer,  
         on_delete = models.CASCADE) 
@@ -133,38 +170,99 @@ class DeviceDetail(models.Model):
     def __str__(self):
         return str(self.device_manufacturer) + " " + self.item_detail
 
+#the  Switch label in the cabnet
+class SwitchLabel(models.Model):
+    name = models.CharField(max_length=250)
 
-class DeviceInventory(models.Model):
-    manufacturer = models.ForeignKey(DeviceManufacturer, on_delete=models.CASCADE)
-    device_type = models.ForeignKey(DeviceType, on_delete=models.CASCADE)
-    device_detail = models.ForeignKey(DeviceDetail, on_delete=models.CASCADE,default="")
-    # serial_number = models.CharField(max_length=50)
-    # service_tag = models.CharField(max_length=50)   
-    # express_service_code = models.CharField(max_length=50)  
-    # mac_address = models.CharField(max_length=50)
-    # description = models.CharField(max_length=250)
-    # device_type_id = models.ForeignKey(DeviceType, on_delete=models.CASCADE)
-    # number_of_rack_unit = models.PositiveSmallIntegerField()    
-    # device_model = models.CharField(max_length=502,default="")   #model number of device
+    class Meta:
+        verbose_name = "SwitchLabel"
+        verbose_name_plural = "SwitchLabel"
+        db_table = 'SwitchLabel'
+
+    def __str__(self):
+        return str(self.name)
+
+
+class SwitchPort(models.Model):
+    port_number = models.PositiveSmallIntegerField()
+
+    class Meta:
+        verbose_name = "SwitchPort"
+        verbose_name_plural = "SwitchPort"
+        db_table = 'SwitchPort'
+
+    def __str__(self):
+        return str(self.port_number)
+
+
+# class DeviceInventory(models.Model):
+#     manufacturer = models.ForeignKey(DeviceManufacturer, on_delete=models.CASCADE)
+#     device_type = models.ForeignKey(DeviceType, on_delete=models.CASCADE)
+#     device_detail = models.ForeignKey(DeviceDetail, on_delete=models.CASCADE,default="")
+#     # serial_number = models.CharField(max_length=50)
+#     # service_tag = models.CharField(max_length=50)   
+#     # express_service_code = models.CharField(max_length=50)  
+#     # mac_address = models.CharField(max_length=50)
+#     # description = models.CharField(max_length=250)
+#     # device_type_id = models.ForeignKey(DeviceType, on_delete=models.CASCADE)
+#     # number_of_rack_unit = models.PositiveSmallIntegerField()    
+#     # device_model = models.CharField(max_length=502,default="")   #model number of device
     
+#     class Meta:
+#         verbose_name = "DeviceInventory"
+#         verbose_name_plural = "DeviceInventory"
+#         db_table = 'DeviceInventory'
+
+#     def __str__(self):
+#         return str(self.manufacturer)
+
+
+# class Device(models.Model):
+#     device_inventory_id = models.ForeignKey(DeviceInventory, on_delete=models.CASCADE)
+#     starting_rack_unit_position = models.PositiveSmallIntegerField()
+#     ending_rack_unit_position = models.PositiveSmallIntegerField()
+#     rack_id = models.PositiveIntegerField()
+#     class Meta:
+#         verbose_name = "Device"
+#         verbose_name_plural = "Devices"
+#         db_table = 'Device'
+
+#     def __str__(self):
+#         return str(self.device_inventory_id)
+
+
+class Port(models.Model):
+    device_hostname = models.OneToOneField(DeviceHostName, on_delete=models.CharField, null=True, blank=True)
+    device_description = models.CharField(max_length=250, null=True, blank=True)
+    patch_port = models.ForeignKey(PatchPort, on_delete=models.CASCADE,null=True, blank=True)    
+    switch_port = models.ForeignKey(SwitchPort, on_delete=models.CASCADE, null=True, blank=True) 
+
     class Meta:
-        verbose_name = "DeviceInventory"
-        verbose_name_plural = "DeviceInventory"
-        db_table = 'DeviceInventory'
+        verbose_name = "Port"
+        verbose_name_plural = "Port"
+        db_table = 'Port'
 
     def __str__(self):
-        return str(self.manufacturer)
+        return str(self.device_hostname)
 
+#default to switch SWITCH = ID 2
+#null=True, blank=True  if you want this field optional
+DEFAULT_DEVICE_TYPE = 1
+DEFAULT_ROLE_TYPE = 1
+class Switch(models.Model):
+    manufacturer = models.ForeignKey(DeviceManufacturer, on_delete=models.CASCADE)
+    device_type = models.ForeignKey(DeviceType, on_delete=models.CASCADE, default=DEFAULT_DEVICE_TYPE)
+    device_role = models.OneToOneField(DeviceRole, on_delete=models.CharField, default=DEFAULT_ROLE_TYPE)   #primary or secondary switch
+    data_center = models.OneToOneField(DataCenter, on_delete=models.CharField,null=True, blank=True)
+    rack = models.OneToOneField(Rack, on_delete=models.CharField,null=True, blank=True)
+    name = models.ForeignKey(SwitchLabel, on_delete=models.CASCADE,null=True, blank=True) 
+    port_id = models.ForeignKey(Port, on_delete=models.CASCADE)
 
-class Device(models.Model):
-    device_inventory_id = models.ForeignKey(DeviceInventory, on_delete=models.CASCADE)
-    starting_rack_unit_position = models.PositiveSmallIntegerField()
-    ending_rack_unit_position = models.PositiveSmallIntegerField()
-    rack_id = models.PositiveIntegerField()
     class Meta:
-        verbose_name = "Device"
-        verbose_name_plural = "Devices"
-        db_table = 'Device'
+        verbose_name = "Switch"
+        verbose_name_plural = "Switch"
+        db_table = 'Switch'
 
     def __str__(self):
-        return str(self.device_inventory_id)
+        return str(self.manufacturer) + " " + str(self.device_type)
+

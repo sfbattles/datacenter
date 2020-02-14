@@ -32,4 +32,4 @@ for model in models:
 # admin.site.register(PortSpeed)
 # admin.site.register(PortType)
 # admin.site.register(PortFunction)
-# # admin.site.register(VLan)
+# admin.site.register(VLan)
