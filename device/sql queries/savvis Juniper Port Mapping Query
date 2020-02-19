@@ -1,0 +1,19 @@
+use momentumdatacenter;
+select device_description AS "Device Description", 
+       DeviceManufacturer.name AS Manufacturer, 
+       DeviceRole.role, DeviceHostname.name as "Sysops Host", 
+       PatchPort.number AS "Patch Port #", 
+       DataCenter.name AS "Data Center" 
+from Port
+left join Switch
+on Port.switch_id = Switch.id
+left join DeviceHostname
+on DeviceHostname.id = Port.device_hostname_id
+left join DataCenter 
+on DataCenter.id = Switch.data_center_id
+left join DeviceManufacturer
+on DeviceManufacturer.id = Switch.manufacturer_id
+left join DeviceRole
+on DeviceRole.id = Switch.device_role_id
+left join PatchPort
+on PatchPort.id = Port.patch_port_id

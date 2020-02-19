@@ -61,7 +61,7 @@ class PortFunction(models.Model):
         return str(self.function)
 
                                  
-# megabit, gigabit
+# port number
 class PatchPort(models.Model):
     number = models.CharField(max_length=250)
 
@@ -155,12 +155,11 @@ DEFAULT_DEVICE_TYPE = 1
 DEFAULT_ROLE_TYPE = 1
 class Switch(models.Model):
     manufacturer = models.ForeignKey(DeviceManufacturer, on_delete=models.CASCADE)
-    device_type = models.ForeignKey(DeviceType, on_delete=models.CASCADE, default=DEFAULT_DEVICE_TYPE)
-    device_role = models.OneToOneField(DeviceRole, on_delete=models.CharField, default=DEFAULT_ROLE_TYPE)   #primary or secondary switch
-    data_center = models.OneToOneField(DataCenter, on_delete=models.CharField,null=True, blank=True)
-    rack = models.OneToOneField(Rack, on_delete=models.CharField,null=True, blank=True)
-    name = models.ForeignKey(SwitchLabel, on_delete=models.CASCADE,null=True, blank=True) 
-    # port = models.ForeignKey(Port, on_delete=models.CASCADE)
+    device_type = models.ForeignKey(DeviceType, on_delete=models.CASCADE, default=DEFAULT_DEVICE_TYPE)   # router or switch
+    device_role = models.ForeignKey(DeviceRole, on_delete=models.CharField, default=DEFAULT_ROLE_TYPE)   # primary or secondary switch
+    data_center = models.ForeignKey(DataCenter, on_delete=models.CharField, null=True, blank=True)       # what datacenter device is located
+    rack = models.ForeignKey(Rack, on_delete=models.CharField,null=True, blank=True)                     # rack name/number in datacenter
+    name = models.ForeignKey(SwitchLabel, on_delete=models.CASCADE,null=True, blank=True)                # switch label in rack
 
     class Meta:
         verbose_name = "Switch"
