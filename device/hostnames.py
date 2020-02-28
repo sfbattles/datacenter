@@ -13,6 +13,5 @@ with open(file_loc, "r", encoding='utf-8-sig') as csvfile:
             print("Value" +  row['Host'].strip()) 
             hostname_obj, created = DeviceHostName.objects.get_or_create(name=row['Host'])
             if created:
-                # p = DeviceHostName(name=row['Host'])
                 hostname_obj.save()
             
