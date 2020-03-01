@@ -9,9 +9,9 @@ with open(file_loc, "r", encoding='utf-8-sig') as csvfile:
     reader = csv.DictReader(csvfile, delimiter="|")
     print(reader)
     for row in reader:     
-        if row['Host'].strip():
+        if row['Host'].strip():     #checks if the line is blank
             print("Value" +  row['Host'].strip()) 
-            hostname_obj, created = DeviceHostName.objects.get_or_create(name=row['Host'])
-            if created:
-                hostname_obj.save()
+            hostname_obj, created = DeviceHostName.objects.get_or_create(name=row['Host'])   # check database if exists and created object if it doesn't
+            if created:     # set to true is hostname_obj is created and does not find duplicate in database.
+                hostname_obj.save()     # saves the data to database.
             

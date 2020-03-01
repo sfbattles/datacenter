@@ -2,6 +2,18 @@ from django.contrib import admin
 
 from django.apps import apps
 
+from . models import Switch
+from . models import Port
+
+class SwitchAdmin(admin.ModelAdmin):
+    list_display=('id', 'manufacturer', 'device_type', 'device_role', 'data_center', 'rack', 'name')
+
+class PortAdmin(admin.ModelAdmin):
+    list_display=('switch','device_hostname', 'device_description', 'patch_port', 'switch_port')
+
+admin.site.register(Switch,SwitchAdmin)
+admin.site.register(Port,PortAdmin)
+
 models = apps.get_models()
 
 for model in models:
@@ -9,6 +21,7 @@ for model in models:
         admin.site.register(model)
     except admin.sites.AlreadyRegistered:
         pass
+
 
 # from . models import DeviceType
 # from . models import Device
@@ -19,7 +32,6 @@ for model in models:
 # from . models import PortSpeed
 # from . models import PortType
 # from . models import PortFunction
-# from . models import 
 
 # # from . models import VLan
 

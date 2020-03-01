@@ -1,0 +1,1002 @@
+port	Host	Switch	Description								
+1		1	0	Cisco switch-1-2 port 16								
+2		1	2	PDU								
+3		1	4									
+4		1	6									
+5		1	8									
+6	int01	1	10	int01								
+7	staging01	1	12	staging01								
+8		1	14	NSA								
+9	iblsnfp03	1	16	iblsnfp03								
+10	mysql02	1	18	mysql02								
+11	dbfailover	1	20	dbfailover								
+12	ibsldvtsts01	1	22	iblsdvtst01								
+13	mysqldashboard	1	24	mysqldashboard								
+14	CORE 1	1	26									
+15	CORE 1	1	28									
+16	QNAP	1	30									
+17		1	32									
+18		1	34									
+19		1	36									
+20		1	38									
+21		1	40									
+22		1	42									
+23		1	44									
+24		1	46									
+1		4	0	disabled								
+2		4	2									
+3		4	4									
+4	xen-host00	4	6	xen-host00								
+5	xen-host01	4	8	xen-host01								
+6	int01	4	10	int01								
+7	staging01	4	12	staging01								
+8	NSA	4	14	NSA								
+9	iblsnfp03	4	16	iblsnfp03								
+10	mysql02	4	18	mysql02								
+11	dbfailover	4	20	dbfailover								
+12	iblsdvtst01	4	22	iblsdvtst01								
+14	mysqldashboard	4	24	mysqldashboard								
+	CORE 2	4	26									
+15	CORE 2	4	28									
+16	QNAP	4	30									
+17		4	32									
+18		4	34									
+19		4	36									
+20		4	38									
+21		4	40									
+22		4	42									
+23		4	44									
+24		4	46									
+TBD		6	47									
+1	sapcr3p1	1	1	sapcr3p1								
+2	provhub01	1	3	provhub01								
+3	iblsbkp03-drac	1	5	iblsbkp03-drac								
+4	dellkvm	1	7	dellkvm								
+5		1	9									
+6		1	11	iblsbkp01								
+7	iblsbkp02	1	13	iblsbkp02								
+8		1	15	CACHEDNS01								
+9	MASTERDNS01	1	17	MASTERDNS01								
+10		1	19									
+11	rcnmrtg	1	21	rcnmrtg								
+12	jms01	1	23	jms01								
+13	dcp01	1	25	dcp01								
+14	consumer03	1	27	consumer03								
+15		1	29									
+16	westplesk02	1	31	westplesk02								
+17	mysql04	1	33	mysql04								
+18	mysql03	1	35	mysql03								
+19	mysql05 - eth2	1	37	mysql05 - eth2								
+20	mysql05	1	39	mysql05								
+21		1	41									
+22		1	43									
+23		1	45									
+24		1	47									
+1	sapcr3p1	4	1	sapcr3p2								
+2		4	3									
+3		4	5									
+4		4	7									
+5	CACHEDNS02	4	9									
+6	iblsbkp01	4	11	iblsbkp01								
+7	iblsbkp02	4	13	iblsbkp02								
+8		4	15									
+9		4	17									
+10		4	19									
+11	rcnmrtg	4	21	rcnmrtg								
+12	jms01	4	23	jms01								
+13	dcp01	4	25	dcp01								
+14	consumer03	4	27	consumer03								
+15		4	29									
+16		4	31									
+17	mysql04	4	33	mysql04								
+18	mysql03	4	35	mysql03								
+19	mysql05 - eth2	4	37	mysql05 - eth2								
+20	mysql05	4	39	mysql05								
+21		4	41									
+22		4	43									
+23		4	45									
+24		4	47									
+1		2	0									
+2		2	2	PDU								
+3		2	4									
+4		2	6									
+5		2	8									
+6		2	10									
+7	mysql08	2	12									
+8	iblsmondb01	2	14									
+9	Systems Sandbox	2	16									 
+10	"reduxio
+"	2	18									
+11	Systems Sandbox	2	20									
+12	MYSQL08	2	22	MYSQL08								
+13	mysql08	2	24	mysql08								
+14	iblsmonpl01	2	26									
+15	mysql01	2	28	mysql01								
+16		2	30									
+		3	1	Kickstart port (per Joel)								
+17		2	32									
+		3	3	sapcr2p1								
+18	VIOLIN01	2	34	reduxio								
+		3	5	SRX3400 node0 reth0								
+19	data02	2	36	data02								
+		3	7	SRX3400 node0 reth1								
+20		2	38									
+		3	9	sapcr2p2								
+21	int04	2	40	int04								
+		3	11	SLB-1								
+		3	13	SLB-1								
+	sla2 - crypto	3	15	sla2 - crypto								
+22		2	42	Brocade Management								
+	pillar pilot	3	17	Pillar pilot primary								
+23		2	44	IBM Management								
+	MRV	3	19	MRV								
+24		2	46	MySQL09								
+		3	21									
+1		5	0									
+		3	23									
+2		5	2									
+		3	25									
+3		5	4									
+		3	27									
+4		5	6									
+		3	29	IBLSOOB								
+5		5	8									
+		3	31	AWN PPtP								
+6		5	10	ATLBC01								
+		3	33	Connection to VPN-B (209.55.8.99)								
+7	mysql08	5	12	mysql08								
+		3	35	Connection to VPN-A (209.55.8.88)								
+8	iblsmondb01	5	14									
+		3	37	AWN PPtP								
+9	Systems Sandbox	5	16									
+		3	39	IBLSITEX02 NIC1 (VM)								
+10	"Reduxio
+"	5	18	reduxio								
+		3	41	IBLSEX02								
+11	Systems Sandbox	5	20									
+		3	43	IBLSEX SERVER								
+12	MYSQL08	5	22	MYSQL08								
+		3	45	IBLSUTEX01 NIC2 (VM)								
+13		5	24									
+		3	47	CHAT SERVER								
+14	iblsmonpl01	5	26									
+15	mysql01	5	28	mysql01								
+16		5	30									
+17		5	32									
+18	VIOLIN01	5	34	reduxio								
+19	data02	5	36	data02								
+20	int04	5	38	int04								
+21		5	40	IBM Management								
+22		5	42	MySQL09 Console Access								
+23		5	44	IBM Management								
+24		5	46	MySQL09								
+1		2	1	PDU								
+2		2	3	NEW SUN 5120								
+3		2	5	IBBS01-CNR01								
+4		2	7	IBBS02-CNR01								
+5		2	9	IBBS01-CNR02								
+6		2	11	IBBS02-CNR02								
+7		2	13	Brocade Management								
+8		2	15	IBBS01-DPE01								
+9		2	17	IBBS00-CNR02								
+10		2	19	IBBS01-DPE02								
+11	IBBS00-CNR01	2	21	IBBS00-CNR01								
+12		2	23	IBBS02-RDU02								
+13		2	25	IBBS01-RDU01								
+14	T1000	2	27	IBBS02-DPE01								
+15		2	29	ATLVIOLIN01								
+16		2	31	ATLVIOLIN02								
+17	Prov-Spare	2	33	Prov-Spare (T2000)								
+18		2	35	Management Console								
+19		2	37	Northland RDU01 primary								
+20		2	39	Northland DPE01 primary								
+21		2	41	Northland CNR01 primary								
+22		2	43	Northland RDU02 primary								
+23		2	45	Northland DPE02 primary								
+24		2	47	Northland CNR02 primary								
+1		5	1	PDU								
+2		5	3	NEW SUN 5120								
+3		5	5	IBBS01-CNR01								
+4		5	7	IBBS02-CNR01								
+5		5	9	IBBS01-CNR02								
+6		5	11	IBBS02-CNR02								
+7		5	13	Brocade Management								
+8		5	15	IBBS01-DPE01								
+9		5	17	IBBS00-CNR02								
+10		5	19	IBBS01-DPE02								
+11	IBBS00-CNR01	5	21	IBBS00-CNR01								
+12		5	23	IBBS02 - RDU01 secondary								
+13		5	25	IBBS01-RDU01								
+14		5	27	IBBS02-DPE02								
+15		5	29	ATLVIOLIN01								
+16		5	31	ATLVIOLIN02								
+17	Prov-Spare	5	33	Prov-Spare (T2000)								
+18		5	35	Cisco switch-2-2 port 16								
+19		5	37	Northland RDU01 secondary								
+20		5	39	Northland DPE01 secondary								
+21		5	41	Northland CNR01 secondary								
+22		5	43	Northland RDU02 secondary								
+23		5	45	Northland DPE02 secondary								
+24		5	47	Northland CNR02 secondary								
+1	SUN_IPV6-3	3	0	SUN_IPV6-3								
+2	dpetest2	3	2	DPEtest2 (209.55.16.14)								
+3		3	4	APP05								
+4		3	6	INT03 eth0								
+5		3	8	APP03 eth0								
+6		3	10	DCP03 eth0								
+7	dpetest1	3	12	dpetest1								
+8	dpetest1	3	14	dpetest1								
+9	pts	3	16	pts								
+10	SUN_IPV6-3	3	18	SUN_IPV6-3								
+11	SUN-IPV6 console	3	20	SUN-IPV6 console								
+12		3	22									
+13	SUN-IPV6 console	3	24	SUN-IPV6 console								
+14		3	26									
+15		3	28	APP04								
+16		3	30	Pillar pilot primary								
+17	dpetest3	3	32	dpetest3								
+18	SUN_IPV6-5	3	34	SUN_IPV6-5								
+19	SUN_IPV6-6	`x	36	SUN_IPV6-6								
+20	ibbs01-dpe02	3	38	ibbs01-dpe02								
+21		3	40									
+22		3	42									
+23		3	44									
+24		3	46									
+1		6	0									
+2	DPEtest2 (209.55.16.14)	6	2	DPEtest2 (209.55.16.14)								
+		6	1									
+3		6	4	APP05 eth1								
+		6	3									
+4		6	6	INT03 eth1								
+		6	5	SRX3400 node1 reth0								
+5		6	8	APP03 eth1								
+		6	7	SRX3400 node1 reth1								
+6		6	10	DCP03 eth1								
+		6	9									
+7	dpetest	6	12	dpetest								
+		6	11	SLB-2								
+		6	13	SLB-2								
+	Pillar pilot secondary	6	15	Pillar pilot secondary								
+8	dpetest1	6	14	dpetest1								
+	IPSLA1	6	17	IPSLA1								
+9	pts	6	16	pts								
+		6	19									
+10	SUN_IPV6-3	6	18	SUN_IPV6-3								
+		6	21									
+11	SUN-IPV6 console	6	20	SUN-IPV6 console								
+		6	23									
+12	SUN-IPV6 console	6	22	SUN-IPV6 console								
+		6	25	Laptop Access								
+13	SUN-IPV6 console	6	24	SUN-IPV6 console								
+	ASR1K	6	27	ASR1K gi-0/0/0								
+14		6	26									
+	ASR1K	6	29	ASR1K gi-0/0/1								
+15		6	28	APP04								
+	ASR1K	6	31	ASR1K gi-0/0/2								
+16		6	30	Pillar pilot secondary								
+		6	33	SUN_IPV6-5								
+17	dpetest3	6	32	dpetest3								
+		6	35	SUN_IPV6-7								
+18	SUN_IPV6-5	6	34	SUN_IPV6-5								
+		6	37									
+19	dpetest4	6	36	dpetest4								
+		6	39									
+20	Ibbs01-dpe02	6	38	Ibbs01-dpe02								
+		6	41									
+21		6	40									
+		6	43									
+22		6	42									
+		6	45									
+23		6	44									
+24		6	46									
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
