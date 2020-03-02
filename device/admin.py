@@ -9,7 +9,7 @@ class SwitchAdmin(admin.ModelAdmin):
     list_display=('id', 'manufacturer', 'device_type', 'device_role', 'data_center', 'rack', 'name')
 
 class PortAdmin(admin.ModelAdmin):
-    list_display=('switch','device_hostname', 'device_description', 'patch_port', 'switch_port')
+    list_display=('id', 'switch','device_hostname', 'device_description', 'patch_port', 'switch_port')
 
 admin.site.register(Switch,SwitchAdmin)
 admin.site.register(Port,PortAdmin)

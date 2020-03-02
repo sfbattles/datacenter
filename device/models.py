@@ -159,7 +159,7 @@ class Switch(models.Model):
     device_role = models.ForeignKey(DeviceRole, on_delete=models.CharField, default=DEFAULT_ROLE_TYPE)   # primary or secondary switch
     data_center = models.ForeignKey(DataCenter, on_delete=models.CharField, null=True, blank=True)       # what datacenter device is located
     rack = models.ForeignKey(Rack, on_delete=models.CharField,null=True, blank=True)                     # rack name/number in datacenter
-    name = models.ForeignKey(SwitchLabel, on_delete=models.CASCADE,null=True, blank=True)                # switch label in rack
+    name =  models.CharField(max_length=250)  # switch label in rack
 
     class Meta:
         verbose_name = "Switch"
@@ -175,6 +175,7 @@ class Port(models.Model):
     patch_port = models.ForeignKey(PatchPort, on_delete=models.CASCADE,null=True, blank=True)    
     switch_port = models.ForeignKey(SwitchPort, on_delete=models.CASCADE, null=True, blank=True) 
     switch = models.ForeignKey(Switch, on_delete=models.CASCADE)
+
     class Meta:
         verbose_name = "Port"
         verbose_name_plural = "Port"
